@@ -44,7 +44,7 @@ private:
     BankAccount* bankAccount;
 public:
     friend ostream &operator << (ostream &out, Client num);
-    Client(string name,string address,string phoneNumber, BankAccount account);
+    Client(string name,string address,string phoneNumber, BankAccount* account);
     string getName();
     void setName(string name);
     string getAddress();
@@ -63,6 +63,7 @@ public:
     BankApplication();
     bool addClient();
     void displayClientsAndAccounts();
+    void run();
 };
 
 

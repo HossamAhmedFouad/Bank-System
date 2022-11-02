@@ -43,11 +43,14 @@ void BankAccount::setBalance(double balance)
 double BankAccount::deposit(double amount)
 {
     balance = amount + balance;
+    return true;
 }
 double BankAccount::withdraw(double amount)
 {
-    if ( amount > balance)
-        cout << "Sorry,  can't do this - you balance is " << balance;
-    else
+    if ( amount > balance){
+        return false;
+    }else {
         balance = balance - amount;
+        return true;
+    }
 }

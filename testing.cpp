@@ -4,5 +4,9 @@ using namespace std;
 
 int main(){
     //Test Your Functions And Classes Here
+    BankApplication application;
+    while (true)
+        application.run();
+
     return 0;
 }

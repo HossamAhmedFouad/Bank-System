@@ -1,12 +1,12 @@
 //Implementation of Client Class
 #include "BankSystem_Classes.h"
 
-Client::Client(string name,string address,string phoneNumber, BankAccount account)
+Client::Client(string name,string address,string phoneNumber, BankAccount* account)
 {
         this->name = name;
         this ->address = address;
         this->phoneNumber = phoneNumber;
-        *this->bankAccount = account;
+        this->bankAccount = account;
 }
 string Client::getName()
 {
@@ -43,4 +43,5 @@ ostream &operator << (ostream &out, Client num)
     out << "Account ID: " << num.bankAccount->getAccountID() << "  (" << num.bankAccount->getAccounttype() << " )\n";
     out <<  " Balance : " <<num.bankAccount->getBalance();
     out << "----------------" << setw(num.getName().size()) << setfill('-') << "----------------";
+    return out;
 }
