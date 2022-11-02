@@ -4,6 +4,5 @@ using namespace std;
 
 int main(){
     //Test Your Functions And Classes Here
-
     return 0;
 }
