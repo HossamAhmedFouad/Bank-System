@@ -1,7 +1,7 @@
 //Implementation of SavingsBankAccount Class
 #include "BankSystem_Classes.h"
 
-SavingsBankAccount::SavingsBankAccount(double initialBalance,double minimumBalance = 1000)
+SavingsBankAccount::SavingsBankAccount(double initialBalance,double minimumBalance)
 {
         if (initialBalance < minimumBalance)
             cout << "The Minimum price to create an account is " << minimumBalance<<endl;
