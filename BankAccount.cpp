@@ -7,6 +7,8 @@ BankAccount::BankAccount()
     accountID = fcai + to_string(fcinum);
     fcinum++;
     balance = 0;
+    accountID="Bank Account";
+
 }
 BankAccount::BankAccount(double amount)
 {
@@ -14,6 +16,7 @@ BankAccount::BankAccount(double amount)
     accountID = fcai + to_string(fcinum);
     fcinum++;
     balance = amount;
+    accountID="Bank Account";
 }
 string BankAccount::getAccountID()
 {
