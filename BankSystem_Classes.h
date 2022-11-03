@@ -30,7 +30,7 @@ class SavingsBankAccount : public BankAccount{
 private:
     double minimumBalance{};
 public:
-    SavingsBankAccount(double initialBalance,double minimumBalance);
+    SavingsBankAccount(double initialBalance,double minimumBalance=1000);
     double deposit(double amount) override;
     double withdraw(double amount) override;
     double getMinimumBalance();
