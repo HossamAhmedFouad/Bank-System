@@ -11,7 +11,7 @@ private:
     string accountID{};
     double balance{};
     string accounttype{};
-    int fcinum = 0;
+    static int fcinum;
 public:
     BankAccount();
     BankAccount(double amount);
@@ -28,7 +28,7 @@ public:
 
 class SavingsBankAccount : public BankAccount{
 private:
-    double minimumBalance{};
+    double minimumBalance=1000;
 public:
     SavingsBankAccount(double initialBalance,double minimumBalance=1000);
     double deposit(double amount) override;

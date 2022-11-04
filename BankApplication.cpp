@@ -9,23 +9,30 @@ bool BankApplication::addClient()
     string name,address,phone;
     int type{0};
     BankAccount *account = nullptr;
-    cout<<"Please enter name: ";cin>>name;
-    cout<<"Please enter address: ";cin>>address;
+    cout<<"Please enter name: ";cin.ignore();getline(cin,name);
+    cout<<"Please enter address: ";getline(cin,address);
     cout<<"Please enter phone number: ";cin>>phone;
-    cout<<"What Type of Account Do You Like? (1) Basic (2) Saving – Type 1 or 2: "; cin>>type;
+    cout<<"What Type of Account Do You Like? (1) Basic (2) Saving - Type 1 or 2: "; cin>>type;
     if(type==1){
         double initialBalance = 0;
         cout<<"Please enter the starting balance: ";cin>>initialBalance;
         account = new BankAccount(initialBalance);
+        Client client(name,address,phone,account);
+        clients.push_back(client);
     }else if(type==2){
+        SavingsBankAccount temp(0);
         double initialBalance= 0;
         cout<<"Please enter the starting balance of your savings account: ";cin>>initialBalance;
-        account = new SavingsBankAccount(initialBalance);
+        if(initialBalance<temp.getMinimumBalance()){
+            cout << "The Minimum price to create an account is " << temp.getMinimumBalance()<<endl;
+        }else{
+            account = new SavingsBankAccount(initialBalance);
+            Client client(name,address,phone,account);
+            clients.push_back(client);
+        }
     }
-
     //Have to change constructor of client to take Bank Account Pointer to allow for polymorphism
-    Client client(name,address,phone,account);
-    clients.push_back(client);
+
 }
 void BankApplication::displayClientsAndAccounts()
 {

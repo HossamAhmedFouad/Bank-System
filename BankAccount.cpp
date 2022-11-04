@@ -1,6 +1,8 @@
 //Implementation of BankAccount Class
 #include "BankSystem_Classes.h"
 
+int BankAccount::fcinum = 0;
+
 BankAccount::BankAccount()
 {
     string fcai = "FCAI-";
