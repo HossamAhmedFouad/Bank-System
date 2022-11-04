@@ -89,8 +89,6 @@ void BankApplication::run() {
             cout<<"Input too long,Please try again"<<endl;
             cout << "Please enter account ID: ";getline(cin,accountID);
         }
-
-
         bool founded= false;
         for(auto& client : clients){
             //To - Do : Assuming best case scenario that the account exist.... but what if account does not exist? Add that else condition
