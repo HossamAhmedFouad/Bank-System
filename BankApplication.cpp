@@ -10,8 +10,20 @@ bool BankApplication::addClient()
     int type{0};
     BankAccount *account = nullptr;
     cout<<"Please enter name: ";cin.ignore();getline(cin,name);
+    while (!regex_match(name, regex("([_a-zA-Z]*)")))
+    {
+        cout << "Invalid User Name!, Try Again\n:";
+        getline(cin,name);
+
+    }
     cout<<"Please enter address: ";getline(cin,address);
     cout<<"Please enter phone number: ";cin>>phone;
+    cout << phone.size();
+    while(!regex_match(phone, regex("(01)(1|2|5|0)([0-9]+)")) || (phone.size() != 11 && phone.size() != 10) )
+    {
+        cout<<"Please enter a correct phone number: ";
+        cin >> phone;
+    }
     cout<<"What Type of Account Do You Like? (1) Basic (2) Saving - Type 1 or 2: "; cin>>type;
     if(type==1){
         double initialBalance = 0;
@@ -22,9 +34,11 @@ bool BankApplication::addClient()
     }else if(type==2){
         SavingsBankAccount temp(0);
         double initialBalance= 0;
-        cout<<"Please enter the starting balance of your savings account: ";cin>>initialBalance;
+        cout<<"Please enter the starting balance of your savings account: ";
+        cin>>initialBalance;
+        temp.setfci(temp.getfci()-1);
         if(initialBalance<temp.getMinimumBalance()){
-            cout << "The Minimum price to create an account is " << temp.getMinimumBalance()<<endl;
+            cout << "The Minimum price to create an account is " << temp.getMinimumBalance() <<endl;
         }else{
             account = new SavingsBankAccount(initialBalance);
             Client client(name,address,phone,account);
@@ -32,8 +46,8 @@ bool BankApplication::addClient()
         }
     }
     //Have to change constructor of client to take Bank Account Pointer to allow for polymorphism
-
 }
+
 void BankApplication::displayClientsAndAccounts()
 {
     for(auto i : clients)
@@ -49,7 +63,7 @@ void BankApplication::run() {
             "3. Withdraw Money\n"
             "4. Deposit Money\n"
             "5. Exit\n"
-            "Please Enter Choice =>  ";
+            "Please Enter Choice : ";
     cin >> choose;
     if ( choose == 1 ){
         this->addClient();

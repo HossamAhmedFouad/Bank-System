@@ -18,7 +18,6 @@ double SavingsBankAccount::deposit(double amount)
     if (amount >= 100){
         setBalance(amount+getBalance());
     }
-
     else
         cout << "Sorry,  can't do this - [NOTE] the minimum deposit is "<<minimumBalance<<" LE"<<endl;
     return getBalance();

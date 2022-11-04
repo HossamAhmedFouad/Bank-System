@@ -22,6 +22,8 @@ public:
     string getAccounttype();
     void setAccountID(string accountID);
     void setAccounttype(string accounttype);
+    void setfci(int fcinum);
+    double getfci();
     double getBalance();
     void setBalance(double balance);
 };
@@ -30,7 +32,7 @@ class SavingsBankAccount : public BankAccount{
 private:
     double minimumBalance=1000;
 public:
-    SavingsBankAccount(double initialBalance,double minimumBalance=1000);
+    SavingsBankAccount(double initialBalance,double minimumBalance = 1000);
     double deposit(double amount) override;
     double withdraw(double amount) override;
     double getMinimumBalance();
@@ -55,7 +57,6 @@ public:
 };
 
 
-
 class BankApplication{
 private:
     vector<Client>clients{};
@@ -65,6 +66,7 @@ public:
     void displayClientsAndAccounts();
     void run();
 };
+
 
 
 

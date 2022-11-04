@@ -3,23 +3,29 @@
 
 int BankAccount::fcinum = 0;
 
-BankAccount::BankAccount()
-{
+BankAccount::BankAccount() {
     string fcai = "FCAI-";
     accountID = fcai + to_string(fcinum);
     fcinum++;
     balance = 0;
-    accounttype="Bank Account";
-
+    accounttype = "Bank Account";
 }
 BankAccount::BankAccount(double amount)
 {
-    string fcai = "FCAI-";
-    accountID = fcai + to_string(fcinum);
-    fcinum++;
-    balance = amount;
-    accounttype="Bank Account";
+        string fcai = "FCAI-";
+        accountID = fcai + to_string(fcinum);
+        fcinum++;
+        balance = amount;
+        accounttype="Bank Account";
 }
+void BankAccount::setfci(int fcinum)
+{
+    this->fcinum =fcinum;
+}
+double BankAccount::getfci()
+{
+    return this->fcinum;
+};
 string BankAccount::getAccountID()
 {
     return accountID;

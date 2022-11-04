@@ -41,7 +41,7 @@ ostream &operator << (ostream &out, Client num)
     out << "----------------" << num.getName() << "----------------" <<endl;
     out << "Address : " << num.getAddress() << " , " << "Phone Number : " << num.getPhoneNumber() <<endl ;
     out << "Account ID: " << num.bankAccount->getAccountID() << "  (" << num.bankAccount->getAccounttype() << " )\n";
-    out <<  " Balance : " <<num.bankAccount->getBalance();
+    out << "Balance : " <<num.bankAccount->getBalance() << "\n";
     out << "----------------" << setw(num.getName().size()) << setfill('-') << "----------------";
     return out;
 }
