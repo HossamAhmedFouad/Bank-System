@@ -1,4 +1,5 @@
-
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 #ifndef BANK_SYSTEM_BANKSYSTEM_CLASSES_H
 #define BANK_SYSTEM_BANKSYSTEM_CLASSES_H
 
@@ -22,8 +23,14 @@ public:
     string getAccounttype();
     void setAccountID(string accountID);
     void setAccounttype(string accounttype);
-    void setfci(int fcinum);
-    double getfci();
+    static void setfci(int fcinumx)
+    {
+        fcinum = fcinumx;
+    }
+    static double getfci()
+    {
+        return fcinum;
+    }
     double getBalance();
     void setBalance(double balance);
 };

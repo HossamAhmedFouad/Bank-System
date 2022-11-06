@@ -1,4 +1,7 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 //Implementation of SavingsBankAccount Class
+
 #include "BankSystem_Classes.h"
 
 SavingsBankAccount::SavingsBankAccount(double initialBalance,double minimumBalance)
@@ -24,7 +27,7 @@ double SavingsBankAccount::deposit(double amount)
 }
 double SavingsBankAccount::withdraw(double amount)
 {
-    if ( amount < minimumBalance)
+    if ( amount > minimumBalance)
         cout << "Sorry,  can't do this - [NOTE] the minimum account Balance is "<< minimumBalance<<endl;
     else
         setBalance(getBalance()-amount);

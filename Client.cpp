@@ -1,4 +1,7 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 //Implementation of Client Class
+
 #include "BankSystem_Classes.h"
 
 Client::Client(string name,string address,string phoneNumber, BankAccount* account)

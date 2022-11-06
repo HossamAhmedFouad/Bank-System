@@ -1,3 +1,5 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 //Implementation of BankApplication Class
 #include "BankSystem_Classes.h"
 BankApplication::BankApplication()
@@ -18,7 +20,6 @@ bool BankApplication::addClient()
     }
     cout<<"Please enter address: ";getline(cin,address);
     cout<<"Please enter phone number: ";cin>>phone;
-    cout << phone.size();
     while(!regex_match(phone, regex("(01)(1|2|5|0)([0-9]+)")) || (phone.size() != 11 && phone.size() != 10) )
     {
         cout<<"Please enter a correct phone number: ";
@@ -28,6 +29,10 @@ bool BankApplication::addClient()
     if(type==1){
         double initialBalance = 0;
         cout<<"Please enter the starting balance: ";cin>>initialBalance;
+        if(initialBalance<=0){
+            cout<<"Sorry,Bad input\n";
+            return false;
+        }
         account = new BankAccount(initialBalance);
         Client client(name,address,phone,account);
         clients.push_back(client);
@@ -75,6 +80,7 @@ void BankApplication::run() {
 
         string accountID;
         bool founded= false;
+        cin.ignore();
         cout << "Please enter account ID: ";getline(cin,accountID);
         while (accountID.length()>20){
             cout<<"Input too long,Please try again"<<endl;
@@ -105,6 +111,7 @@ void BankApplication::run() {
     else if ( choose == 4 ) {  //Same as withdraw but only difference -> call deposit.
 
         string accountID;
+        cin.ignore();
         cout << "Please enter account ID: ";getline(cin,accountID);
         while (accountID.length()>20){
             cout<<"Input too long,Please try again"<<endl;
