@@ -1,5 +1,2 @@
 # Bank-System
-0 0  k
-0 1 n
-1 0 n
-1 1  k   
+## This is a direct implementation of OOP concepts such as polymorphism and inheritance and abstraction using C++
